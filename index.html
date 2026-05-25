@@ -1,1 +1,217 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Na Medida - Gestão Alimentar Escolar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="flex h-screen overflow-hidden">
+
+  <!-- Sidebar -->
+  <div class="w-64 bg-white border-r border-gray-200 flex flex-col">
+    <div class="p-6 border-b">
+      <h1 class="text-2xl font-bold text-emerald-600">Na Medida</h1>
+      <p class="text-xs text-gray-500">Gestão Alimentar Escolar</p>
+    </div>
+
+    <nav class="flex-1 p-4 space-y-1" id="sidebar-nav">
+      <a href="#" onclick="showPage('dashboard')" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl sidebar-active">
+        <i class="fas fa-home w-5"></i><span>Dashboard</span>
+      </a>
+      <a href="#" onclick="showPage('alunos')" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100">
+        <i class="fas fa-users w-5"></i><span>Alunos</span>
+      </a>
+      <a href="#" onclick="showPage('turmas')" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100">
+        <i class="fas fa-chalkboard-teacher w-5"></i><span>Turmas</span>
+      </a>
+      <a href="#" onclick="showPage('cardapio')" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100">
+        <i class="fas fa-utensils w-5"></i><span>Cardápio</span>
+      </a>
+      <a href="#" onclick="showPage('registro')" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100">
+        <i class="fas fa-clipboard-list w-5"></i><span>Registro de Consumo</span>
+      </a>
+      <a href="#" onclick="showPage('relatorios')" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100">
+        <i class="fas fa-chart-bar w-5"></i><span>Relatórios</span>
+      </a>
+      <a href="#" onclick="showPage('cozinha')" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100">
+        <i class="fas fa-kitchen-set w-5"></i><span>Cozinha</span>
+      </a>
+      <a href="#" onclick="showPage('avaliacao')" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100">
+        <i class="fas fa-star w-5"></i><span>Avaliação</span>
+      </a>
+    </nav>
+
+    <div class="p-4 border-t">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+          <i class="fas fa-user text-emerald-600"></i>
+        </div>
+        <div>
+          <p class="font-medium">Jean</p>
+          <p class="text-xs text-gray-500">PROF Master</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 overflow-auto">
+
+    <header class="bg-white border-b px-8 py-4 flex items-center justify-between">
+      <h2 id="page-title" class="text-2xl font-semibold text-gray-800">Dashboard</h2>
+      <div class="flex items-center gap-6">
+        <button class="relative">
+          <i class="fas fa-bell text-xl text-gray-600"></i>
+          <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
+        </button>
+        <p class="text-sm font-medium">Segunda-feira, 25 de maio de 2026</p>
+      </div>
+    </header>
+
+    <!-- ==================== PÁGINAS ==================== -->
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="page active p-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-2xl shadow-sm">
+          <p class="text-gray-500">Refeições Servidas Hoje</p>
+          <p class="text-4xl font-bold text-emerald-600 mt-2">342</p>
+          <p class="text-xs text-green-600 mt-2">↑ 12% vs ontem</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm">
+          <p class="text-gray-500">Desperdício Hoje</p>
+          <p class="text-4xl font-bold text-red-600 mt-2">18%</p>
+          <p class="text-xs text-red-600 mt-2">↑ 5% vs ontem</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm">
+          <p class="text-gray-500">Taxa de Aceitação</p>
+          <p class="text-4xl font-bold text-emerald-600 mt-2">82%</p>
+          <p class="text-xs text-green-600 mt-2">↑ 3% semana passada</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm">
+          <p class="text-gray-500">Alunos Atendidos</p>
+          <p class="text-4xl font-bold text-emerald-600 mt-2">289</p>
+          <p class="text-xs text-gray-500 mt-2">de 320 alunos</p>
+        </div>
+      </div>
+      <p class="text-gray-500 text-center mt-12">Gráficos e alertas aparecerão aqui conforme suas imagens do Dashboard.</p>
+    </div>
+
+    <!-- Cozinha -->
+    <div id="cozinha" class="page hidden p-8">
+      <div class="bg-emerald-600 text-white p-8 rounded-3xl mb-8">
+        <h2 class="text-2xl font-bold">Cardápio de Hoje</h2>
+        <p class="opacity-90">segunda-feira, 25 de maio de 2026</p>
+        <div class="grid grid-cols-2 gap-8 mt-8">
+          <div>
+            <p class="font-medium">Prato Principal</p>
+            <p class="text-xl mt-1">Arroz com Feijão e Frango Grelhado</p>
+            <p class="font-medium mt-6">Salada</p>
+            <p>Salada de Alface e Tomate</p>
+          </div>
+          <div>
+            <p class="font-medium">Acompanhamento</p>
+            <p class="text-xl mt-1">Purê de Batata</p>
+            <p class="font-medium mt-6">Sobremesa</p>
+            <p>Fruta da Época</p>
+          </div>
+        </div>
+        <div class="mt-10 text-right">
+          <p class="text-5xl font-bold">350 <span class="text-2xl opacity-75">porções</span></p>
+        </div>
+      </div>
+
+      <h3 class="font-semibold text-lg mb-4">Status do Estoque</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white p-5 rounded-2xl border border-emerald-200">
+          <p class="font-medium">Arroz</p>
+          <p class="text-3xl font-bold">45 kg</p>
+          <span class="text-emerald-600">Estoque OK</span>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-emerald-200">
+          <p class="font-medium">Feijão</p>
+          <p class="text-3xl font-bold">30 kg</p>
+          <span class="text-emerald-600">Estoque OK</span>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-yellow-300">
+          <p class="font-medium">Frango</p>
+          <p class="text-3xl font-bold">8 kg</p>
+          <span class="text-yellow-600">Estoque Baixo</span>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-red-300">
+          <p class="font-medium">Alface</p>
+          <p class="text-3xl font-bold">3 unid.</p>
+          <span class="text-red-600">Estoque Crítico</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cardápio -->
+    <div id="cardapio" class="page hidden p-8">
+      <h2 class="text-2xl font-bold mb-6">Cardápio Semanal</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-2xl">
+          <p class="font-semibold">Segunda-feira, 25/05 - 350 porções</p>
+          <p class="mt-2">Arroz com Feijão e Frango Grelhado • Purê de Batata • Salada de Alface e Tomate • Fruta da Época</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl">
+          <p class="font-semibold">Terça-feira, 26/05 - 340 porções</p>
+          <p class="mt-2">Macarrão ao Molho de Tomate • Carne Moída • Salada de Repolho • Gelatina</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl">
+          <p class="font-semibold">Quarta-feira, 27/05 - 330 porções</p>
+          <p class="mt-2">Arroz com Feijão e Peixe Assado • Batata Cozida • Salada Verde • Banana</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Relatórios -->
+    <div id="relatorios" class="page hidden p-8">
+      <h2 class="text-2xl font-bold mb-6">Relatórios</h2>
+      <p class="text-gray-600">Aqui você verá gráficos de desperdício, aceitação por turma e insights.</p>
+    </div>
+
+    <!-- Registro de Consumo -->
+    <div id="registro" class="page hidden p-8">
+      <h2 class="text-2xl font-bold mb-6">Registro de Consumo</h2>
+      <p class="text-gray-600">Formulário para registrar consumo por turma.</p>
+    </div>
+
+    <!-- Alunos -->
+    <div id="alunos" class="page hidden p-8">
+      <h2 class="text-2xl font-bold mb-6">Alunos</h2>
+      <p class="text-gray-600">Lista completa de alunos.</p>
+    </div>
+
+    <!-- Turmas -->
+    <div id="turmas" class="page hidden p-8">
+      <h2 class="text-2xl font-bold mb-6">Turmas</h2>
+      <p class="text-gray-600">Gestão de turmas e professores.</p>
+    </div>
+
+    <!-- Avaliação -->
+    <div id="avaliacao" class="page hidden p-8">
+      <div class="max-w-lg mx-auto bg-white rounded-3xl p-10">
+        <h2 class="text-2xl font-bold text-center mb-6">Avaliação do Cardápio</h2>
+        <div class="flex justify-center gap-10 text-6xl my-10">
+          <button class="hover:scale-125 transition">👍</button>
+          <button class="hover:scale-125 transition">😐</button>
+          <button class="hover:scale-125 transition">👎</button>
+        </div>
+        <textarea class="w-full border border-gray-300 rounded-2xl p-4 h-32" placeholder="Deixe seu comentário (opcional)..."></textarea>
+        <button class="mt-6 w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-2xl font-medium">Enviar Avaliação</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
